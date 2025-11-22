@@ -12,21 +12,26 @@ export default function CardList() {
       <div className="space-y-2">
         {CARD_LIST.map((card) => (
           <Card key={card.id}>
-            <CardContent className="p-6">
+            <CardContent className="pr-6 pl-0 py-7">
               <div className="grid grid-cols-6 gap-4 items-center">
-                {card.bank === "DBL Bank" ? (
-                  <CardIcon
-                    fill={COLORS.blue}
-                    backgroundFill={COLORS.paleBlue}
-                  />
-                ) : card.bank === "BRC Bank" ? (
-                  <CardIcon
-                    fill={COLORS.pink}
-                    backgroundFill={COLORS.paleRose}
-                  />
-                ) : (
-                  <CardIcon fill={COLORS.amber} backgroundFill={COLORS.ivory} />
-                )}
+                <div className="flex justify-center">
+                  {card.bank === "DBL Bank" ? (
+                    <CardIcon
+                      fill={COLORS.blue}
+                      backgroundFill={COLORS.paleBlue}
+                    />
+                  ) : card.bank === "BRC Bank" ? (
+                    <CardIcon
+                      fill={COLORS.pink}
+                      backgroundFill={COLORS.paleRose}
+                    />
+                  ) : (
+                    <CardIcon
+                      fill={COLORS.amber}
+                      backgroundFill={COLORS.ivory}
+                    />
+                  )}
+                </div>
                 <div className="flex flex-col">
                   <div className="text-sm font-medium">Card Type</div>
                   <p className="text-primary-4">{card.type}</p>

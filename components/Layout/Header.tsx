@@ -1,18 +1,28 @@
 "use client";
-import { BellDot, Search, Settings } from "lucide-react";
+import { BellDot, Search, Settings, Menu } from "lucide-react";
 import Image from "next/image";
 import profileImage from "../../public/profile.jpg";
 import { usePathname } from "next/navigation";
 import { COLORS } from "@/constants";
 
-const Header = () => {
+interface HeaderProps {
+  onMenuClick?: () => void;
+}
+
+const Header = ({ onMenuClick }: HeaderProps) => {
   const pathname = usePathname();
 
   return (
     <header className="border-b border-border bg-background ">
       <div className="flex items-center justify-between px-6 py-4">
-        <div className="flex gap-8 items-center">
-          {/* Middle Section: Overview Header */}
+        <div className="flex gap-4 items-center">
+          <button
+            onClick={onMenuClick}
+            className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label="Open menu"
+          >
+            <Menu size={24} className="text-primary-2" />
+          </button>
           <p className="text-2xl font-normal text-primary-2">
             {pathname === "/"
               ? "Dashboard"
@@ -22,7 +32,7 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="relative">
+          <div className="relative hidden sm:block">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary-4 " />
             <input
               type="text"
@@ -32,13 +42,13 @@ const Header = () => {
           </div>
 
           <button
-            className="flex h-10 w-10 bg-light-gray hover:bg-muted hover:cursor-pointer
+            className="hidden sm:flex h-10 w-10 bg-light-gray hover:bg-muted hover:cursor-pointer
            items-center justify-center rounded-full transition-colors"
           >
             <Settings className="h-5 w-5 text-primary-4" />
           </button>
 
-          <div className="bg-light-gray rounded-full p-2 hover:bg-muted transition-colors cursor-pointer relative">
+          <div className="bg-light-gray rounded-full p-2 hover:bg-muted transition-colors cursor-pointer relative hidden sm:block">
             <BellDot
               className="h-6 w-6  text-secondary-2"
               color={COLORS.secondary2}
