@@ -1,6 +1,7 @@
 "use client";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { EXPENSE_STATISTICS } from "@/data";
+import { COLORS } from "@/constants";
 
 const renderCustomLabel = (props: {
   cx?: number;
@@ -32,7 +33,7 @@ const renderCustomLabel = (props: {
       <text
         x={x}
         y={y - 8}
-        fill="#fff"
+        fill={COLORS.white}
         textAnchor="middle"
         dominantBaseline="central"
         className="text-xs font-semibold"
@@ -42,7 +43,7 @@ const renderCustomLabel = (props: {
       <text
         x={x}
         y={y + 8}
-        fill="#fff"
+        fill={COLORS.white}
         textAnchor="middle"
         dominantBaseline="central"
         className="text-[10px] font-medium"
@@ -80,8 +81,8 @@ export default function ExpenseStatistics() {
             </Pie>
             <Tooltip
               contentStyle={{
-                backgroundColor: "#fff",
-                border: "1px solid #E6EFF5",
+                backgroundColor: COLORS.white,
+                border: `1px solid ${COLORS.border}`,
                 borderRadius: "8px",
               }}
             />

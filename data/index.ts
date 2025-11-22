@@ -1,6 +1,7 @@
 import marcel from "../public/marcel.jpg";
 import julia from "../public/julia-volk.jpg";
 import emanuel from "../public/emauel.jpg";
+import { COLORS } from "@/constants";
 
 export const CARDS_DATA = [
   {
@@ -152,10 +153,10 @@ export const WEEKLY_ACTIVITY = [
 ] as const;
 
 export const EXPENSE_STATISTICS = [
-  { name: "Entertainment", value: 30, color: "#343C6A" },
-  { name: "Bill Expense", value: 15, color: "#FC7900" },
-  { name: "Investment", value: 20, color: "#232323" },
-  { name: "Others", value: 35, color: "#396AFF" },
+  { name: "Entertainment", value: 30, color: COLORS.primary },
+  { name: "Bill Expense", value: 15, color: COLORS.orange },
+  { name: "Investment", value: 20, color: COLORS.foreground },
+  { name: "Others", value: 35, color: COLORS.blue },
 ] as const;
 
 export const QUICK_TRANSFER_CONTACTS = [
@@ -187,4 +188,49 @@ export const BALANCE_HISTORY = [
   { month: "Nov", balance: 470 },
   { month: "Dec", balance: 620 },
   { month: "Jan", balance: 750 },
+] as const;
+
+export const YEARLY_INVESTMENT = [
+  { year: "2016", amount: 20000 },
+  { year: "2017", amount: 23000 },
+  { year: "2018", amount: 25000 },
+  { year: "2019", amount: 30000 },
+  { year: "2020", amount: 32000 },
+  { year: "2021", amount: 40000 },
+] as const;
+
+export const YEARLY_REVENUE = [
+  { year: "2016", revenue: 0 },
+  { year: "2017", revenue: 15000 },
+  { year: "2018", revenue: 8000 },
+  { year: "2019", revenue: 22000 },
+  { year: "2020", revenue: 18000 },
+  { year: "2021", revenue: 40000 },
+] as const;
+
+export const MY_INVESTMENTS = [
+  {
+    id: 1,
+    title: "Apple Store",
+    subtitle: "E-commerce, Marketplace",
+    investmentValue: "$54,000",
+    returnValue: "+16%",
+    isPositive: true,
+  },
+  {
+    id: 2,
+    title: "Samsung Mobile",
+    subtitle: "E-commerce, Marketplace",
+    investmentValue: "$25,300",
+    returnValue: "-4%",
+    isPositive: false,
+  },
+  {
+    id: 3,
+    title: "Tesla Motors",
+    subtitle: "Electric Vehicles",
+    investmentValue: "$8,200",
+    returnValue: "+25%",
+    isPositive: true,
+  },
 ] as const;

@@ -10,3 +10,7 @@ export { default as EconometricsIcon } from "./EconometricsIcon";
 export { default as BusinessIcon } from "./BusinessIcon";
 export { default as MoneyIcon } from "./MoneyIcon";
 export { default as PaypalIcon } from "./PaypalIcon";
+export { default as DollarIcon } from "./DollarIcon";
+export { default as PieChart } from "./PieChart";
+export { default as AppleIcon } from "./AppleIcon";
+export { default as TeslaIcon } from "./TeslaIcon";

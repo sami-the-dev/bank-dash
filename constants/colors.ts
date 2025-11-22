@@ -16,4 +16,7 @@ export const COLORS = {
   paleBlue: "#E7EDFF",
   teal: "#16DBCC",
   lightBlue: "#EDF1F7",
+  yellow: "#FCAA0B",
+  orange: "#FC7900",
+  blue: "#396AFF",
 } as const;

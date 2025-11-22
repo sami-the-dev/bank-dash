@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SidePanel from "@/components/Layout/SidePanel";
+import Header from "@/components/Layout/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <div className="flex min-h-screen">
+          <SidePanel />
+          <div className="flex flex-1 flex-col overflow-hidden">
+            <Header />
+            <main className="flex-1 p-6  overflow-y-auto bg-light-gray">
+              {children}
+            </main>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }

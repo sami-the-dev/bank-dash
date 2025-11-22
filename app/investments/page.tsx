@@ -1,102 +1,61 @@
-import Header from "@/components/Layout/Header";
-import SidePanel from "@/components/Layout/SidePanel";
-import { INVESTMENT_HOLDINGS } from "@/data";
+import InvestmentStatCard from "@/components/Investments/InvestmentStatCard";
+import YearlyTotalInvestment from "@/components/Investments/YearlyTotalInvestment";
+import MonthlyRevenue from "@/components/Investments/MonthlyRevenue";
+import MyInvestment from "@/components/Investments/MyInvestment";
+import TrendingStock from "@/components/Investments/TrendingStock";
+import DollarIcon from "@/components/icons/DollarIcon";
+import PieChart from "@/components/icons/PieChart";
+import AppleIcon from "@/components/icons/AppleIcon";
+import GoogleIcon from "@/components/icons/GoogleIcon";
+import TeslaIcon from "@/components/icons/TeslaIcon";
+import { COLORS } from "@/constants";
+import { Repeat } from "lucide-react";
+import { MY_INVESTMENTS } from "@/data";
 
 export default function InvestmentsPage() {
   return (
-    <div className="flex min-h-screen">
-      <SidePanel />
-      <div className="flex flex-1 flex-col">
-        <Header />
-        <main className="flex-1 p-6">
-          <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">
-                Investments
-              </h1>
-              <p className="mt-2 text-muted-foreground">
-                Manage your investment portfolio and track performance
-              </p>
-            </div>
+    <div>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <InvestmentStatCard
+          icon={<DollarIcon />}
+          title="Total Invested Amount"
+          value="$150,000"
+        />
+        <InvestmentStatCard
+          icon={<PieChart />}
+          title="Number of Investments"
+          value="1,250"
+        />
+        <InvestmentStatCard
+          icon={<Repeat width={28} height={28} color={COLORS.primary3} />}
+          title="Rate of Return"
+          value="+5.80%"
+        />
+      </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {/* Investment Summary Cards */}
-              <div className="rounded-lg border border-border bg-card p-6">
-                <h3 className="text-sm font-medium text-muted-foreground">
-                  Total Portfolio Value
-                </h3>
-                <p className="mt-2 text-3xl font-bold text-foreground">
-                  $125,430.50
-                </p>
-                <p className="mt-1 text-sm text-green-600">+12.5% this month</p>
-              </div>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 mt-6 items-stretch">
+        <YearlyTotalInvestment />
+        <MonthlyRevenue />
+      </div>
 
-              <div className="rounded-lg border border-border bg-card p-6">
-                <h3 className="text-sm font-medium text-muted-foreground">
-                  Total Gain/Loss
-                </h3>
-                <p className="mt-2 text-3xl font-bold text-green-600">
-                  +$15,230.00
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Since inception
-                </p>
-              </div>
-
-              <div className="rounded-lg border border-border bg-card p-6">
-                <h3 className="text-sm font-medium text-muted-foreground">
-                  Active Investments
-                </h3>
-                <p className="mt-2 text-3xl font-bold text-foreground">24</p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Across 5 categories
-                </p>
-              </div>
-            </div>
-
-            {/* Investment Holdings */}
-            <div className="rounded-lg border border-border bg-card">
-              <div className="border-b border-border p-6">
-                <h2 className="text-xl font-semibold text-foreground">
-                  Investment Holdings
-                </h2>
-              </div>
-              <div className="p-6">
-                <div className="space-y-4">
-                  {INVESTMENT_HOLDINGS.map((investment, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between rounded-lg border border-border p-4"
-                    >
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-foreground">
-                          {investment.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {investment.symbol} • {investment.shares} shares
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-semibold text-foreground">
-                          {investment.value}
-                        </p>
-                        <p
-                          className={`text-sm ${
-                            investment.positive
-                              ? "text-green-600"
-                              : "text-red-600"
-                          }`}
-                        >
-                          {investment.change}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 mt-6 items-start">
+        <MyInvestment
+          investments={[
+            {
+              ...MY_INVESTMENTS[0],
+              icon: <AppleIcon />,
+            },
+            {
+              ...MY_INVESTMENTS[1],
+              icon: <GoogleIcon />,
+            },
+            {
+              ...MY_INVESTMENTS[2],
+              icon: <TeslaIcon />,
+            },
+          ]}
+        />
+        <TrendingStock />
       </div>
     </div>
   );
