@@ -50,12 +50,10 @@ const SidePanel = () => {
 
   return (
     <aside className="sticky top-0 flex h-screen w-64 flex-col border-r border-border bg-background">
-      {/* Header */}
       <div className="flex items-center gap-3 space-between px-4 py-6">
         <Image width={36} height={36} alt="logo" src={logo} />
         <span className="text-xl font-black text-primary-2">Bank Dash.</span>
       </div>
-      {/* Navigation Links */}
       <nav className="flex-1 overflow-y-auto px-4 py-6">
         <ul className="space-y-2">
           {navigationLinks.map((link) => {

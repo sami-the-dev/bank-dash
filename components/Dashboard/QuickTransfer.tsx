@@ -26,7 +26,6 @@ export default function QuickTransfer() {
         <h2 className="text-xl font-semibold text-primary-2">Quick Transfer</h2>
       </div>
       <div className="rounded-[25px] bg-white p-6 shadow-sm border border-border flex-1 flex flex-col justify-center">
-        {/* Contacts Slider */}
         <div className="relative mb-6">
           <div className="flex items-center justify-between gap-4">
             <button

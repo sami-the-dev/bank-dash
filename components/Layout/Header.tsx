@@ -17,13 +17,11 @@ const Header = () => {
             {pathname === "/"
               ? "Dashboard"
               : pathname.replace("/", "")[0]?.toLocaleUpperCase() +
-                pathname.replace("/", "").slice(1)}
+                pathname.replace("/", "").slice(1).replace(/-/g, " ")}
           </p>
         </div>
 
-        {/* Right Section: Profile, Notifications, Settings, Search */}
         <div className="flex items-center gap-4">
-          {/* Search Bar */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary-4 " />
             <input
@@ -33,7 +31,6 @@ const Header = () => {
             />
           </div>
 
-          {/* Settings Icon */}
           <button
             className="flex h-10 w-10 bg-light-gray hover:bg-muted hover:cursor-pointer
            items-center justify-center rounded-full transition-colors"
@@ -41,7 +38,6 @@ const Header = () => {
             <Settings className="h-5 w-5 text-primary-4" />
           </button>
 
-          {/* Notification Bell */}
           <div className="bg-light-gray rounded-full p-2 hover:bg-muted transition-colors cursor-pointer relative">
             <BellDot
               className="h-6 w-6  text-secondary-2"
@@ -49,7 +45,6 @@ const Header = () => {
             />
           </div>
 
-          {/* Profile Picture */}
           <button className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-muted hover:opacity-80 transition-opacity">
             <Image
               width={40}

@@ -1,18 +1,17 @@
-import { CARDS_DATA } from "@/data";
 import EllipseIcon from "@/components/icons/EllipseIcon";
 import ChipCard from "@/components/icons/ChipCardIcon";
-import DarkChipIcon from "../icons/DarkChipIcon";
-import DarkEllipseIcon from "../icons/DarkEllipseIcon";
+import DarkChipIcon from "@/components/icons/DarkChipIcon";
+import DarkEllipseIcon from "@/components/icons/DarkEllipseIcon";
+import { CREDIT_CARDS_LIST } from "@/data";
 
-export default function MyCards() {
+export default function CreditCardList() {
   return (
-    <div className="lg:col-span-2 h-full flex flex-col">
-      <div className="flex items-center justify-between mb-5">
+    <div>
+      <div className="mb-5">
         <h2 className="text-xl font-semibold text-primary-2">My Cards</h2>
-        <p className="text-primary-2">See All</p>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 flex-1">
-        {CARDS_DATA.map((card) => (
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {CREDIT_CARDS_LIST.map((card) => (
           <div
             key={card.id}
             className={`group relative h-[235px] w-full overflow-hidden rounded-[25px] p-6 shadow-lg transition-all hover:shadow-xl ${
